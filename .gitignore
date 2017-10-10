@@ -2,3 +2,8 @@ venv/*
 tmp/*
 **/*.stl
 __pycache__/*
+build/*
+dist/*
+bot.spec
+dist
+.gitignore.swp
