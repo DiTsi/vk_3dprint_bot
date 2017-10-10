@@ -1,3 +1,3 @@
 #!/bin/bash
-pyinstaller -F -n bot.bin bot.py
+pyinstaller -F -n bot bot.py
 exit 0

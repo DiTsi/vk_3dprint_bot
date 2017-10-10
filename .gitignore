@@ -7,3 +7,4 @@ dist/*
 bot.spec
 dist
 .gitignore.swp
+.swp
