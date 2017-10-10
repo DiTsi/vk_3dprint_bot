@@ -75,9 +75,12 @@ def return_list_of_price_messages(messages_list):
 
     for message in messages_list:
         if message['body'] == 'price':
+            user_id = message['uid']
             try:
                 attachment = message['attachment']
             except Exception:
+                message = get_string('strings', 'no_attachments')
+                send_notification.delay(user_id, message)
                 continue
             else:
                 if attachment['type'] == 'doc':
@@ -89,6 +92,12 @@ def return_list_of_price_messages(messages_list):
 
                     if ext == 'stl':
                         list_of_price_messages.append(message)
+                    else:
+                        message = get_string('strings', 'no_stl_file')
+                        send_notification.delay(user_id, message)
+                else:
+                    message = get_string('strings', 'unknown_error')
+                    send_notification.delay(user_id, message)
 
     return list_of_price_messages
 
@@ -111,7 +120,9 @@ def main():
                 mass = stl_mass(file_path, density)
 
             except Exception:
-                send_notification.delay()
+                # Can't get mass of STL
+                message = get_string('strings', 'cant_calculate_price')
+                send_notification.delay(user_id, message)
 
 
 
