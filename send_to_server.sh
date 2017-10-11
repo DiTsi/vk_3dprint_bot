@@ -1,7 +1,11 @@
 #!/bin/bash
-IP="194.177.20.156"
-FILE=./dist/bot
+IP="194.177.20.164"
 
-scp $FILE iziprint@194.177.20.156:/home/iziprint/bot.bin
-
+scp ./bot.py					iziprint@$IP:/home/iziprint/
+scp ./config_parser.py			iziprint@$IP:/home/iziprint/
+scp ./export_pip_packages.sh	iziprint@$IP:/home/iziprint/
+scp ./notifier.py				iziprint@$IP:/home/iziprint/
+scp ./requirements.txt			iziprint@$IP:/home/iziprint/
+scp ./strings.ini				iziprint@$IP:/home/iziprint/
+scp ./volume.py					iziprint@$IP:/home/iziprint/
 exit 0
