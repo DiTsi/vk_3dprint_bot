@@ -1,11 +1,12 @@
-import configparser
-import os
 
-parser = configparser.ConfigParser()
+from volume import stl_volume, stl_mass
 
-parser.read(os.path.expanduser('./strings.ini'))
-a = parser.get('strings', 'messages')
-print(a)
-exit(0)
+DENSITY = 1.05 # g/cm^3
 
 
+a = stl_volume('Detal.stl')
+b = stl_mass(a, density=DENSITY)
+PRICE = 7 # rub/gram
+
+
+print(b * PRICE)

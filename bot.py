@@ -190,7 +190,7 @@ def main():
                 email_subject = get_string('strings', 'email_new_calc')
                 email_message = 'Пользователь: ' + user_name + '\n' + \
                     'Масса: ' + str(round(mass, 1)) + ' г.\n' + \
-                    'Цена: ' + str(round(mass)) + ' руб.'
+                    'Цена: ' + str(round(price)) + ' руб.'
                 notify_via_email(EMAIL, email_subject, email_message)
 
                 rm_file(file_path)
