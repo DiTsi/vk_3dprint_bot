@@ -49,7 +49,10 @@ def rm_file(filename):
 def mv_file(filepath, folder):
     date = time.strftime('%y%m%d_%H%M%S__', time.localtime(path.getmtime(filepath)))
     basename = ntpath.basename(filepath)
-    rename(filepath,  folder + "/" + date + basename)
+    try:
+        rename(filepath,  folder + "/" + date + basename)
+    except FileNotFoundError:
+        print('no destination folder exist!')
 
 
 def send_answer(vk_api, user_id, message):
