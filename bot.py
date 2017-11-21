@@ -3,12 +3,14 @@
 
 
 import time
+
+import ntpath
 import vk
 import socket
 from config_parser import get_string
 from volume import stl_mass, stl_volume
 import urllib.request
-from os import remove
+from os import remove, rename, path
 from notifier import notify_via_email
 from time import sleep
 from _datetime import datetime
@@ -21,6 +23,7 @@ MESSAGES_COUNT = 50  # How many messages must be readed (max - 200)
 DEBUG = 1
 # MAXIMUM_STL_SIZE = 21474836480 # 20MiB
 STL_PATH = '/tmp'
+syncthing_folder = '/home/iziprint/syncthing'
 DENSITY = 1.05 # g/cm^3
 PRICE = 7 # rub/gram
 
@@ -41,6 +44,12 @@ def save_file(url, filename):
 
 def rm_file(filename):
     remove(filename)
+
+
+def mv_file(filepath, folder):
+    date = time.strftime('%y%m%d_%H%M%S__', time.localtime(path.getmtime(filepath)))
+    basename = ntpath.basename(filepath)
+    rename(filepath,  folder + "/" + date + basename)
 
 
 def send_answer(vk_api, user_id, message):
@@ -193,7 +202,7 @@ def main():
                     'Цена: ' + str(round(price)) + ' руб.'
                 notify_via_email(EMAIL, email_subject, email_message)
 
-                rm_file(file_path)
+                mv_file(file_path, syncthing_folder)
 
         time.sleep(3)
 

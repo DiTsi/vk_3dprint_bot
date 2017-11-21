@@ -1,12 +1,22 @@
 
-from volume import stl_volume, stl_mass
+# from volume import stl_volume, stl_mass
 
-DENSITY = 1.05 # g/cm^3
+# DENSITY = 1.05 # g/cm^3
 
+import time
+import ntpath
+from os import rename, path
+import re
 
-a = stl_volume('Detal.stl')
-b = stl_mass(a, density=DENSITY)
-PRICE = 7 # rub/gram
+filepath = "<file.png>"
+newfilepath = "<path>"
 
+def mv_file(filepath, folder):
+    date = time.strftime('%y%m%d_%H%M%S__', time.localtime(path.getmtime(filepath)))
+    basename = ntpath.basename(filepath)
+    # print(date + basename)
+    # print()
+    rename(filepath,  folder + "/" + date + basename)
 
-print(b * PRICE)
+mv_file(filepath, newfilepath)
+
