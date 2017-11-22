@@ -7,6 +7,5 @@ numpy-stl==2.3.2
 python-utils==2.2.0
 requests==2.18.4
 six==1.11.0
-stl==0.0.3
 urllib3==1.22
 vk==2.0.2
