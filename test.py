@@ -8,8 +8,8 @@ import ntpath
 from os import rename, path
 import re
 
-filepath = "<file.png>"
-newfilepath = "<path>"
+filepath = <path/file.ong>
+newfilepath = <filepath>
 
 def mv_file(filepath, folder):
     date = time.strftime('%y%m%d_%H%M%S__', time.localtime(path.getmtime(filepath)))

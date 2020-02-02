@@ -17,8 +17,8 @@ from _datetime import datetime
 
 
 REMOTE_SERVER = "www.google.com"
-EMAIL = '<email>'
-TOKEN = '<token>'
+EMAIL = <email>
+TOKEN = <token>
 MESSAGES_COUNT = 50  # How many messages must be readed (max - 200)
 DEBUG = 1
 # MAXIMUM_STL_SIZE = 21474836480 # 20MiB

@@ -1,5 +1,5 @@
 #!/bin/bash
-IP="194.177.20.164"
+IP=<server_ip>
 
 scp ./bot.py					iziprint@$IP:/home/iziprint/
 scp ./config_parser.py			iziprint@$IP:/home/iziprint/

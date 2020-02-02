@@ -6,8 +6,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.header import Header
 
-password = "<password>"
-server_email = "<email>"
+password = <password>
+server_email = <email>
 
 
 def notify_via_email(email_address, subject, message):
@@ -26,7 +26,7 @@ def notify_via_email(email_address, subject, message):
 
 
 def main():
-    notify_via_email('<email>', 'тема', 'сообщение')
+    notify_via_email(<email>, 'тема', 'сообщение')
 
 
 if  __name__ ==  "__main__" :
